@@ -46,17 +46,17 @@ class Namespace(str):
 
     @property
     def simulation_ns(self) -> Namespace:
-        return Namespace(self.split("/")[0])
+        return Namespace(os.path.dirname(self))
 
     @property
     def robot_ns(self) -> Namespace:
-        return Namespace(self.split("/")[1])
+        return Namespace(os.path.basename(os.path.normpath(self)))
 
     def remove_double_slash(self) -> Namespace:
         return Namespace(self.replace("//", "/"))
 
 
-yaml.add_representer(Namespace, str) #type: ignore
+yaml.add_representer(Namespace, lambda dumper, data: dumper.represent_str(str(data)))
 
 
 # TODO deprecate this in favor of Model.EMPTY
@@ -344,7 +344,7 @@ class Robot(RobotProps):
         inter_planner = str(obj.get("inter", ""))
         local_planner = str(obj.get("planner", ""))
         agent = str(obj.get("agent", ""))
-        record_data = bool(obj.get("record_data", False))
+        record_data = bool(obj.get("record_data", rosparam_get(bool, "record_data", False)))
 
         return Robot(
             name=name,
