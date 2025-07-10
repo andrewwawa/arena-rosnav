@@ -87,10 +87,6 @@ repositories:
     type: git
     url: https://github.com/ivaROS/lflh.git
     version: 69016520930dcf2a23f64bfa7d5ac563d34a4dd5
-  planners/mpc:
-    type: git
-    url: https://github.com/rst-tu-dortmund/mpc_local_planner
-    version: 5b4e465fec718245484e8668e6dd45539ca37983
   planners/rlca-ros:
     type: git
     url: https://github.com/ivaROS/rlca-ros.git
