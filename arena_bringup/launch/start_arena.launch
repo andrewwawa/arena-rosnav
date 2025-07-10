@@ -158,7 +158,7 @@
 
   <!-- <node type="create_config_file.py" pkg="rviz_utils" name="rviz_config_file_creator" /> -->
   
-  <!-- <node type="rviz" name="rviz" pkg="rviz" args="-d $(find dynamic_gap)/rviz/arena.rviz" /> -->
+  <node type="rviz" name="rviz" pkg="rviz" args="-d $(find dynamic_gap)/rviz/arena.rviz" />
 
   <node type="visualize_robot_model.py" pkg="rviz_utils" name="visualize_robot_model" output="screen" />
 
